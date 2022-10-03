@@ -1,4 +1,4 @@
-# PhysicsNoiseFilteringLab
+# Physics. Noise Filtering Lab
 ## Data used
 I got data for ./Waveform folder using GDS-71000B oscillograph during lab execution. Unfortunately, data output is hard to extract correctly using Python module Pandas. So I decided to replace line 25 "Waveform data," with "Time,Waveform data," for each file.
 
