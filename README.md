@@ -3,7 +3,7 @@
 I got data for ./Waveform folder using GDS-71000B oscillograph during lab execution. Unfortunately, data output is hard to extract correctly using Python module Pandas. So I decided to replace line 25 "Waveform data," with "Time,Waveform data," for each file.
 
 ## Dependencies
-To run `./main.py`, you need to install the following dependencies:
+To run `./main.py`, you need to install the following modules:
 ```batchfile
 pip install matplotlib
 pip install Pandas
