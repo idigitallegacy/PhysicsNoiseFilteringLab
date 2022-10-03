@@ -20,7 +20,7 @@ pip install Pandas
 
 ## Filter methods
 | Filter name   | Filter options  | Options range                 | Description                                                                                          |
-|:------------- |:---------------:| -----------------------------:|:-----------------------------------------------------------------------------------------------------|
+|:------------- |:---------------:|:-----------------------------:|:-----------------------------------------------------------------------------------------------------|
 | AverageFilter | data<br>bufsize | Any Iterable<br>0 - len(data) | Average filter method. Uses average value of **bufsize** elements amount.<br><br>See also *buffering*|
 | MedianFilter  | data<br>bufsize | Any Iterable<br>0 - len(data) | Median filter method. Uses **bufsize** values median value (e.g. [0, 10, 20, 100] => 20).<br>Default median filter **bufsize** value is 3.<br><br>See also *buffering*|
 | ExpMeanFilter | data<br>k       | Any Iterable<br>0 - 1         | Exponential moving average value filter method. **K** is a degree of weighting decrease.<br>Uses E_i = **k** * data[i] + (1 - **k**) * E_(i-1) formula.<br>E_i is a normalised output. Initially, E_0 = 1.0|
