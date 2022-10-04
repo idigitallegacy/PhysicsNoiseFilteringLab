@@ -16,12 +16,10 @@ def plot_show(title, x_data, y_data):
     fig = plt.figure(dpi=128, figsize=(8, 6))
     style.use('ggplot')
     plt.plot(x_data, y_data, c='xkcd:azure', alpha=0.6)
-    # Установить графический формат
-    plt.title(title, fontsize=16)  # Графическое название
-    plt.xlabel("Time", fontsize=12)  # заголовок оси X и размер шрифта
+    plt.title(title, fontsize=16)
+    plt.xlabel("Time", fontsize=12)
     plt.ylabel("Wave data", fontsize=12)
-    plt.tick_params(axis='both', which='major', labelsize=8)  # Формат оси
-    # Показать диаграмму
+    plt.tick_params(axis='both', which='major', labelsize=8)
     plt.show()
     plt.close(fig)
 
@@ -35,7 +33,6 @@ def plt_save(file, title, x_data, y_data):
     plt.xlabel("Time", fontsize=12)
     plt.ylabel("Wave data", fontsize=12)
     plt.tick_params(axis='both', which='major', labelsize=9)
-    # Показать диаграмму
     plt.savefig(file)
     plt.close(fig)
 
@@ -47,12 +44,10 @@ def plt_multiple_save(file, title, x_data1, y_data1, x_data2, y_data2):
     ax = fig.add_subplot()
     ax.plot(x_data1, y_data1, c='xkcd:azure', alpha=0.5)
     ax.plot(x_data2, y_data2, c="xkcd:purple", alpha=0.8)
-    # Установить графический формат
-    plt.title(title, fontsize=16)  # Графическое название
-    plt.xlabel("Time", fontsize=12)  # заголовок оси X и размер шрифта
+    plt.title(title, fontsize=16)
+    plt.xlabel("Time", fontsize=12)
     plt.ylabel("Wave data", fontsize=12)
-    plt.tick_params(axis='both', which='major', labelsize=9)  # Формат оси
-    # Показать диаграмму
+    plt.tick_params(axis='both', which='major', labelsize=9)
     plt.savefig(file)
     plt.close(fig)
 
@@ -88,7 +83,7 @@ def median_filter(data, bufsize):
         average /= bufsize
 
         abs_distance = 1e9
-        median = 0
+        median = data[0]
         for j in buffer:
             if abs(average - j) < abs_distance:
                 abs_distance = abs(average - j)
@@ -105,8 +100,8 @@ def easy_mean(data, k=0.1):
     filtered_data = []
     normalised = 1.0
 
-    for i in range(len(data)):
-        normalised = k * data[i] + (1 - k) * normalised
+    for i in data:
+        normalised = k * i + (1 - k) * normalised
         filtered_data.append(normalised)
 
     return filtered_data
