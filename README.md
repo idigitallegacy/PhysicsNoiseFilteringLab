@@ -39,6 +39,43 @@ This swapping method allows me to process data without losing dimentions (eg., i
 
 **Important note** This buffering method requires `data[0] = data[ len(data) ]` to work fine. Be careful.
 
+### Data processing at Average filter method
+The more **buffsize** value set, the more quality you get as the result, but it slows down method.
+```python
+average = 0
+for i in buffer:
+    average += i
+average /= bufsize
+filtered_data.append(average)
+# <...> buffer swapping here; cycle goes to 'average = 0' line
+```
+
+### Data processing at Median filter method
+The more **buffsize** value set, the more quality you get as the result, but it slows down method.
+```python
+average = 0
+min_distance = 1e9
+median = buffer[0]
+for i in buffer:
+    average += i
+average /= bufsize
+for i in buffer:
+    if abs(i - average) < min_distance:
+        median = i
+        min_distance = abs(i - average)
+filtered_data.append(median)
+# <...> buffer swapping here; cycle goes to 'average = 0' line
+```
+
+### Data processing at Exponential mean value filter method
+The less **k** value set, the more quality you get.
+```python
+normalised = 1.0
+for i in data:
+    normalised = k * i + (1 - k) * normalised
+    filtered_data.append(normalised)
+```
+
 ## Conclusion
 Source code provided by Michael @idigitallegacy Makarov. This project is **educational and non-commercial use** only. Feel free to make pull requests at this project, if you see something ambigious or weak moments.
 
